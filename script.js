@@ -1,12 +1,16 @@
 const display = document.querySelector("#display")
 const button = document.querySelector("#openbtn")
 const dial_body = document.querySelector("#dial-btn")
+
+// Input Number Array
 let inputArray = []
 
+// Show dialpad
 button.addEventListener('click', () => {
     dial_body.classList.add("show")
 })
 
+// Hide dialpad
 const close = document.querySelector("#close-dial")
 close.addEventListener('click', () => {
     dial_body.classList.remove("show")
@@ -14,6 +18,7 @@ close.addEventListener('click', () => {
     display.innerText = ""
 })
 
+// Add inputs to the array
 const inputNumber = (e) => {
     inputArray.push(e)
     if (inputArray.length <= 12) {
@@ -25,6 +30,7 @@ const inputNumber = (e) => {
     }
 }
 
+// Add Backspace functionality
 const backspace = document.getElementById("backspace")
 backspace.addEventListener("click", () => {
     inputArray.pop(inputArray)
@@ -32,6 +38,7 @@ backspace.addEventListener("click", () => {
     navigator.vibrate(50);
 })
 
+// Call Button Fuctionality
 const callBtn = document.getElementById("callbtn");
 callBtn.addEventListener("click", () => {
     if (inputArray.length === 0) {
@@ -47,7 +54,6 @@ callBtn.addEventListener("click", () => {
 
 
 // Toggle Theme
-
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
