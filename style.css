@@ -1,0 +1,239 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+:root {
+  --font-color: #252525;
+  --bg-color: #ececec;
+}
+
+[data-theme="dark"] {
+  --font-color: #dcdcdc;
+  --bg-color: rgb(23, 23, 23);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+body {
+  background-color: #383838 !important;
+}
+
+.screen {
+  background-color: rgb(0, 0, 0);
+  height: 80vh;
+  max-width: 330px;
+  margin-top: 10vh;
+  border-radius: 20px;
+  aspect-ratio: 9/16;
+  position: relative;
+  background-color: var(--bg-color);
+  transition: 0.3s ease;
+  overflow: hidden;
+  min-height: 530px;
+  max-height: 575px;
+}
+
+.screen #screenText {
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  color: var(--font-color);
+  text-align: center;
+  width: 82%;
+}
+
+.dial-body {
+  width: 55px !important;
+  height: 55px !important;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  background-color: rgb(85, 255, 91);
+  cursor: pointer;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen .dial-body.show {
+  background-color: transparent;
+}
+
+.screen .dial-body .innerScreen {
+  display: none;
+}
+
+.screen .dial-body.show .innerScreen {
+  display: block;
+  background-color: transparent;
+}
+
+.dial-body.show {
+  transition: 0.5s ease;
+  height: 100% !important;
+  width: 100% !important;
+  display: block;
+  bottom: 0;
+  left: 0;
+  border-radius: 0px;
+}
+
+.dial-body.show #openbtn {
+  display: none;
+}
+
+#openbtn {
+  padding: 0.7rem;
+}
+
+.screen .dial-body .display {
+  background-color: transparent;
+  font-size: 2.3rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--font-color);
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 0.5rem;
+  cursor: text;
+}
+
+.screen .dial-body .dialpad {
+  transition: 0.3s ease;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  position: absolute;
+  bottom: 0;
+}
+
+.screen .dial-body .dialpad .row .col-4 {
+  display: flex;
+  flex-direction: row;
+}
+
+.screen .dial-body .dialpad .col-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  font-size: 1.8rem;
+}
+
+.screen .dial-body .dialpad .col-4 .dialnum {
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #fdfdfd, #d4d4d4);
+  box-shadow: 12px 12px 24px #cdcdcd, -12px -12px 24px #ffffff;
+  font-weight: 600;
+}
+
+.screen .dial-body .dialpad .col-4 .dialnum:active {
+  background: #ececec;
+  box-shadow: inset 12px 12px 24px #cdcdcd, inset -12px -12px 24px #ffffff;
+}
+
+[data-theme="dark"] .screen .dial-body .dialpad .col-4 .dialnum {
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #191919, #151515);
+  box-shadow: 16px 16px 15px #131313, -16px -16px 15px #1b1b1b;
+}
+
+[data-theme="dark"] .screen .dial-body .dialpad .col-4 .dialnum:active {
+  background: #171717;
+  box-shadow: inset 12px 12px 24px #101010, inset -12px -12px 24px #1e1e1e;
+}
+
+#callbtn {
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #55ff5b;
+  color: #101010;
+}
+
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.theme-switch {
+  display: inline-block;
+  height: 28px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(85, 255, 91);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.theme-switch-wrapper p {
+  color: #fff;
+}
